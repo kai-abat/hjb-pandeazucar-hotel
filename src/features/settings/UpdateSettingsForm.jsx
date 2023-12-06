@@ -18,15 +18,12 @@ function UpdateSettingsForm() {
   } = useSettings();
   const { isUpdating, updateSetting } = useUpdateSetting();
 
-  const { register } = useForm();
-
   if (isLoading) return <Spinner />;
 
   const handleUpdate = (e, field) => {
-    const { value } = e.target;
-    console.log(field, value);
+    const { value, defaultValue } = e.target;
 
-    if (!value) return;
+    if (!value || value === defaultValue) return;
 
     updateSetting({ [field]: value });
   };
