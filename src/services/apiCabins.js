@@ -10,18 +10,27 @@ export const getCabins = async () => {
   return data;
 };
 
-export const createCabin = async (newCabin) => {
+export const createEditCabin = async (newCabin, id) => {
+  console.log(newCabin, id);
+  const hasImagePath = newCabin.image?.startsWith?.(supabaseUrl);
   const imageName = `${Math.random()}-${newCabin.image.name}`.replaceAll(
     "/",
     ""
   );
-  const imagePath = `${supabaseUrl}/storage/v1/object/public/cabin/${imageName}`;
+  const imagePath = hasImagePath
+    ? newCabin.image
+    : `${supabaseUrl}/storage/v1/object/public/cabin/${imageName}`;
   // https://kighqptumqibztqeobqm.supabase.co/storage/v1/object/public/cabin/cabin-001.jpg
   // 1. Create a Cabin
-  const { data, error } = await supabase
-    .from("cabins")
-    .insert([{ ...newCabin, image: imagePath }])
-    .select();
+
+  let query = supabase.from("cabins");
+
+  // A) Create
+  if (!id) query = query.insert([{ ...newCabin, image: imagePath }]);
+  // B) Edit
+  if (id) query = query.update({ ...newCabin, image: imagePath }).eq("id", id);
+
+  const { data, error } = await query.select().single();
 
   if (error) {
     console.log(error);
