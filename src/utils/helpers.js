@@ -32,3 +32,8 @@ export const formatCurrency = (value) =>
 export const isObjectEmpty = (objectName) => {
   return Object.keys(objectName).length === 0;
 };
+
+export const sortByDirection = (direction, field, list) => {
+  const modifier = direction === "asc" ? 1 : -1;
+  return list.sort((a, b) => (a[field] - b[field]) * modifier);
+};

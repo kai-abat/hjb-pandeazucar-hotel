@@ -37,6 +37,13 @@ const Cabin = styled.div`
   font-family: "Sono";
 `;
 
+const Capacity = styled.div`
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-grey-600);
+  /* font-family: "Sono"; */
+`;
+
 const Price = styled.div`
   font-family: "Sono";
   font-weight: 600;
@@ -78,6 +85,7 @@ function CabinRow({ cabin }) {
       <Table.Row>
         <Img src={image} alt={name} />
         <Cabin>{name}</Cabin>
+        <Capacity>Fits up to {maxCapacity} guest</Capacity>
         <Price>{regularPrice}</Price>
         {discount ? <Discount>{formatCurrency(discount)}</Discount> : "-"}
         <div>

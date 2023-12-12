@@ -2,6 +2,7 @@ import CabinTable from "../features/cabins/CabinTable";
 import Heading from "../ui/Heading";
 import Row from "../ui/Row";
 import AddCabin from "../features/cabins/AddCabin";
+import CabinTableOperations from "../features/cabins/CabinTableOperations";
 // import { getCabins } from "../services/apiCabins";
 
 function Cabins() {
@@ -13,6 +14,7 @@ function Cabins() {
     <>
       <Row type="horizontal">
         <Heading as="h1">All cabins</Heading>
+        <CabinTableOperations />
         {/* <img
         src="https://kighqptumqibztqeobqm.supabase.co/storage/v1/object/public/cabin/cabin-001.jpg"
         alt="cabin1"

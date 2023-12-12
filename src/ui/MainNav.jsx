@@ -13,7 +13,8 @@ const NavList = styled.ul`
   flex-direction: column;
   gap: 0.8rem;
 `;
-
+// Use NavLink from react-router-dom
+// and &:visited to show the current navigation
 const StyledNavLink = styled(NavLink)`
   &:link,
   &:visited {
