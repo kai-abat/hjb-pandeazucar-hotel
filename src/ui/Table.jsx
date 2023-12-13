@@ -21,12 +21,12 @@ const CommonRow = styled.div`
 const StyledHeader = styled(CommonRow)`
   padding: 1.6rem 2.4rem;
 
-  background-color: var(--color-grey-50);
-  border-bottom: 1px solid var(--color-grey-100);
+  background-color: var(--color-brand-600);
+  border-bottom: 1px solid var(--color-grey-300);
   text-transform: uppercase;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.6px;
   font-weight: 600;
-  color: var(--color-grey-600);
+  color: var(--color-grey-0);
 `;
 
 const StyledRow = styled(CommonRow)`

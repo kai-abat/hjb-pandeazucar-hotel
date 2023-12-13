@@ -10,7 +10,7 @@ function SortBy({ options }) {
     <Select
       options={options}
       type="white"
-      value={sortBy}
+      value={sortBy === null ? "" : sortBy}
       onChange={(e) => handleChange(e.target.value)}
     />
   );

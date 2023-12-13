@@ -5,6 +5,7 @@ import Table from "../../ui/Table";
 import Menus from "../../ui/Menus";
 import { useSearchParams } from "react-router-dom";
 import { sortByDirection } from "../../utils/helpers";
+import Empty from "../../ui/Empty";
 
 // const Table = styled.div`
 //   border: 1px solid var(--color-grey-200);
@@ -36,8 +37,11 @@ function CabinTable() {
 
   if (isLoading) return <Spinner />;
 
+  if (!cabins.length) return <Empty resource="cabins" />;
+
   const filterValue = searchParams.get("discount") || "all";
 
+  // Filtering in Client Side
   // 1. Filter
   let filteredCabins;
   if (filterValue === "all") filteredCabins = cabins;

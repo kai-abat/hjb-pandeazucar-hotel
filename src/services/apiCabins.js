@@ -1,5 +1,6 @@
 import supabase, { supabaseUrl } from "./supabase";
 
+// Select *
 export const getCabins = async () => {
   const { data, error } = await supabase.from("cabins").select("*");
   if (error) {
@@ -10,6 +11,7 @@ export const getCabins = async () => {
   return data;
 };
 
+// Insert/Update
 export const createEditCabin = async (newCabin, id) => {
   console.log(newCabin, id);
   const hasImagePath = newCabin.image?.startsWith?.(supabaseUrl);
