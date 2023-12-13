@@ -38,8 +38,15 @@ const FilterButton = styled.button`
 
 function Filter({ filterField, options }) {
   // store to url
-  const { handler: handleClick, searchParams } = useUrl(filterField);
+  const [searchParams, setSearchParams] = useSearchParams();
+  // const { handler: handleClick, searchParams } = useUrl(filterField);
   const currentFilter = searchParams.get(filterField) || options.at(0).value;
+
+  const handleClick = (value) => {
+    searchParams.set(filterField, value);
+    if (searchParams.get("page")) searchParams.set("page", 1);
+    setSearchParams(searchParams);
+  };
 
   return (
     <StyledFilter>
