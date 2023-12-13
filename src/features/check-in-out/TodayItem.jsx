@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const StyledTodayItem = styled.li`
   display: grid;
+
   grid-template-columns: 9rem 2rem 1fr 7rem 9rem;
   gap: 1.2rem;
   align-items: center;
