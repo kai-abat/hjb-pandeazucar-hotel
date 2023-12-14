@@ -10,7 +10,7 @@ export const useLogin = () => {
   const { mutate: login, isLoading } = useMutation({
     mutationFn: ({ email, password }) => LoginAPI({ email, password }),
     onSuccess: ({ user }) => {
-      queryClient.setQueriesData(["user", user]); // store the user data immediately to the cache of react query
+      queryClient.setQueryData(["user", user]); // store the user data immediately to the cache of react query
       toast.success(`Welcome back!, User ${user.email} 😊`);
       navigate("/dashboard");
     },

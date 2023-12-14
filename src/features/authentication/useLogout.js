@@ -9,9 +9,9 @@ export const useLogout = () => {
   const { mutate: logout, isLoading } = useMutation({
     mutationFn: () => logoutAPI(),
     onSuccess: () => {
-      queryClient.removeQueries();
+      queryClient.removeQueries(); // delete all the cache store in react query
       toast.success("Successfully logged out");
-      navigate("/login", { replace: true });
+      navigate("/login", { replace: true }); // redirect back to login page
     },
   });
 
