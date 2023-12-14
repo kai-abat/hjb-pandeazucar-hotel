@@ -9,10 +9,8 @@ export const useLogin = () => {
   const navigate = useNavigate();
   const { mutate: login, isLoading } = useMutation({
     mutationFn: ({ email, password }) => LoginAPI({ email, password }),
-    onSuccess: (data) => {
-      console.log(data);
+    onSuccess: ({ user }) => {
       queryClient.setQueriesData(["user", user]); // store the user data immediately to the cache of react query
-      const { user } = data;
       toast.success(`Welcome back!, User ${user.email} 😊`);
       navigate("/dashboard");
     },
