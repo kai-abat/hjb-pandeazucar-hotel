@@ -7,10 +7,26 @@ const rotate = keyframes`
   }
 `;
 
-const SpinnerMini = styled(BiLoaderAlt)`
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+`;
+
+const StyledSpinnerMini = styled(BiLoaderAlt)`
   width: 2.4rem;
   height: 2.4rem;
   animation: ${rotate} 1.5s infinite linear;
 `;
+
+function SpinnerMini({ label = "" }) {
+  return (
+    <Container>
+      <StyledSpinnerMini />
+      {label && <span>{label}</span>}
+    </Container>
+  );
+}
 
 export default SpinnerMini;
