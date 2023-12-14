@@ -80,7 +80,7 @@ function BookingDetail() {
                 icon={<HiOutlineTrash />}
                 disabled={isDeleting}
               >
-                Delete
+                Delete Booking
               </Button>
             </Modal.Open>
             {/* Modal Delete */}
@@ -89,8 +89,9 @@ function BookingDetail() {
                 resourceName="booking"
                 disabled={isDeleting}
                 onConfirm={() => {
-                  deleteBooking(bookingId);
-                  navigate("/");
+                  deleteBooking(bookingId, {
+                    onSettled: () => navigate(-1),
+                  });
                 }}
               />
             </Modal.Window>
