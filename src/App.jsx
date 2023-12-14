@@ -51,7 +51,6 @@ function App() {
               <Route path="/bookings" element={<Bookings />} />
               <Route path="/bookings/:bookingId" element={<Booking />} />
               <Route path="/checkin/:bookingId" element={<CheckIn />} />
-              /
               <Route path="/cabins" element={<Cabins />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/users" element={<Users />} />

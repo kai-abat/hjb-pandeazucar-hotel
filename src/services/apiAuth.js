@@ -5,8 +5,10 @@ export const signup = async ({ fullName, email, password }) => {
     email,
     password,
     options: {
-      fullName: fullName,
-      avatar: "",
+      data: {
+        fullName: fullName,
+        avatar: "",
+      },
     },
   });
   if (error) {
@@ -34,8 +36,6 @@ export const getCurrentUser = async () => {
   if (!session) return null;
 
   const { data, error } = await supabase.auth.getUser();
-
-  console.log(data);
 
   if (error) throw new Error(error.message);
 
