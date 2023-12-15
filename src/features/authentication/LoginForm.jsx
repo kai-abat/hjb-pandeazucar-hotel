@@ -11,6 +11,8 @@ function LoginForm() {
   // pw: fake1234
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // const [email, setEmail] = useState("jexik11258@bayxs.com");
+  // const [password, setPassword] = useState("fake1234");
 
   const { login, isLoading } = useLogin();
 
