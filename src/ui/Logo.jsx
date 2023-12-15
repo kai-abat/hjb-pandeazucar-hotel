@@ -18,7 +18,7 @@ function Logo() {
   return (
     <StyledLogo>
       <Link to="/">
-        <Img src={src} alt="Logo" />
+        <Img src={src} title="The Wild Oasis" alt="Logo" />
       </Link>
     </StyledLogo>
   );
