@@ -98,6 +98,8 @@ const GlobalStyles = createGlobalStyle`
   --border-radius-md: 7px;
   --border-radius-lg: 9px;
 
+  --media-max-width1: 1048;
+
 
 }
 
