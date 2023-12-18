@@ -17,7 +17,7 @@ const StyleSidebar = styled.aside`
   gap: 3.2rem;
   transition: all 0.3s ease;
 
-  @media ${DEVICE_MAX_W.laptop} {
+  @media ${DEVICE_MAX_W.tablet} {
     width: 26rem;
     height: 100dvh;
     position: fixed;
@@ -46,7 +46,7 @@ const LogoWrapper = styled.div`
 
 const NavBarButton = styled.button`
   display: none;
-  @media ${DEVICE_MAX_W.laptop} {
+  @media ${DEVICE_MAX_W.tablet} {
     position: absolute;
     top: 60%;
     right: -40px;

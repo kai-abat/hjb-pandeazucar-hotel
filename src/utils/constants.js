@@ -1,11 +1,11 @@
 export const PAGE_SIZE = 10;
 
 const size = [
-  { name: "mobileS", min: "320px", max: "374px" },
-  { name: "mobileM", min: "375px", max: "424px" },
-  { name: "mobileL", min: "425px", max: "767px" },
-  { name: "tablet", min: "768px", max: "1023" },
-  { name: "laptop", min: "1024px", max: "1439px" },
+  { name: "mobileS", min: "320px", max: "375px" },
+  { name: "mobileM", min: "375px", max: "425px" },
+  { name: "mobileL", min: "425px", max: "768px" },
+  { name: "tablet", min: "768px", max: "1024px" },
+  { name: "laptop", min: "1025px", max: "1440px" },
 ];
 
 export const DEVICE_MAX_W = {

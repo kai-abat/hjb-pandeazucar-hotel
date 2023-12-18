@@ -190,6 +190,20 @@ img {
   filter: grayscale(var(--image-grayscale)) opacity(var(--image-opacity));
 }
 
+body::-webkit-scrollbar {
+  width: 1rem;
+}
+ 
+body::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
+  background: var(--color-grey-50);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-brand-500);
+  outline: 1px solid none;
+}
+
 /*
 FOR DARK MODE
 

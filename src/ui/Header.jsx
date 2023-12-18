@@ -18,14 +18,20 @@ const StyleHeader = styled.header`
   align-items: center;
   /* justify-content: flex-end; */
   justify-content: space-between;
-  @media ${DEVICE_MAX_W.laptop} {
+  @media ${DEVICE_MAX_W.mobileL} {
+    flex-direction: column;
+    /* justify-content: flex-end; */
   }
 `;
 
 const HeaderMenuContainer = styled.div`
-  background: none;
   display: flex;
+  align-items: center;
   gap: 2.4rem;
+  @media ${DEVICE_MAX_W.mobileL} {
+    width: 100%;
+    justify-content: space-between;
+  }
 `;
 
 const LogoDiv = styled.div`
@@ -33,6 +39,10 @@ const LogoDiv = styled.div`
   justify-content: center;
   align-items: center;
   gap: 2.4rem;
+  @media ${DEVICE_MAX_W.mobileL} {
+    width: 100%;
+    justify-content: flex-start;
+  }
 `;
 
 function Header() {

@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 
 const ButtonSideBarFloat = styled.button`
   display: none;
-  @media ${DEVICE_MAX_W.laptop} {
+  @media ${DEVICE_MAX_W.tablet} {
     position: absolute;
     top: 60%;
     right: -40px;

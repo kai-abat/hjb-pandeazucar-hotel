@@ -9,6 +9,8 @@ import {
   Tooltip,
 } from "recharts";
 import { useDarkMode } from "../../context/DarkModeContext";
+import { DEVICE_MAX_W } from "../../utils/constants";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const ChartBox = styled.div`
   /* Box */
@@ -18,6 +20,12 @@ const ChartBox = styled.div`
 
   padding: 2.4rem 3.2rem;
   grid-column: 3 / span 2;
+  @media ${DEVICE_MAX_W.tablet} {
+    grid-column: 1 / span 2;
+  }
+  @media ${DEVICE_MAX_W.mobileL} {
+    grid-column: 1;
+  }
 
   & > *:first-child {
     margin-bottom: 1.6rem;
@@ -142,13 +150,41 @@ function prepareData(startData, stays) {
 }
 
 function DurationChart({ confirmedStays }) {
+  const { width: winWidth } = useWindowDimensions();
+  console.log(winWidth);
   const { isDarkMode } = useDarkMode();
   const startData = isDarkMode ? startDataDark : startDataLight;
   const data = prepareData(startData, confirmedStays);
+  const pieChartProp =
+    winWidth >= 768
+      ? {
+          rcontainer: { height: 240 },
+          legend: {
+            align: "right",
+            vAlign: "middle",
+            layout: "vertical",
+            width: "30%",
+            height: "100%",
+          },
+          pie: { cx: "40%", cy: "50%" },
+        }
+      : {
+          rcontainer: { height: "100%" },
+          legend: {
+            align: "middle",
+            vAlign: "bottom",
+            layout: "horizontal",
+            width: "100%",
+            height: "40%",
+          },
+          pie: { cx: "50%", cy: "40%" },
+        };
+
+  console.log(pieChartProp.legend.align);
   return (
     <ChartBox>
       <Heading as="h2">Stay duration summary </Heading>
-      <ResponsiveContainer width="100%" height={240}>
+      <ResponsiveContainer width="100%" height={pieChartProp.rcontainer.height}>
         <PieChart>
           <Pie
             data={data}
@@ -156,8 +192,8 @@ function DurationChart({ confirmedStays }) {
             dataKey="value"
             innerRadius={85}
             outerRadius={110}
-            cx="40%"
-            cy="50%"
+            cx={pieChartProp.pie.cx}
+            cy={pieChartProp.pie.cy}
             paddingAngle={3}
           >
             {data.map((entry) => (
@@ -170,11 +206,12 @@ function DurationChart({ confirmedStays }) {
           </Pie>
           <Tooltip />
           <Legend
-            verticalAlign="middle"
-            align="right"
-            width="30%"
-            layout="vertical"
+            align={pieChartProp.legend.align}
+            verticalAlign={pieChartProp.legend.vAlign}
+            width={pieChartProp.legend.width}
+            layout={pieChartProp.legend.layout}
             iconSize={15}
+            height={pieChartProp.legend.height}
             iconType="circle"
           />
         </PieChart>

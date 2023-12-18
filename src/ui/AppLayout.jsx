@@ -11,10 +11,6 @@ const StyleAppLayout = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
   height: 100dvh;
-
-  /* @media ${DEVICE_MAX_W.laptop} {
-    grid-template-columns: 1fr;
-  } */
 `;
 
 // const StyleAppLayout = styled.div`
@@ -28,7 +24,7 @@ const StyleAppLayout = styled.div`
 
 const Main = styled.main`
   background-color: var(--color-grey-50);
-  padding: 1rem 3rem;
+  padding: 1rem 3rem 6rem 3rem;
   /* overflow: scroll; */
 `;
 

@@ -5,6 +5,7 @@ import Row from "../../ui/Row";
 import { useTodayActivity } from "./useTodayActivity";
 import Spinner from "../../ui/Spinner";
 import TodayItem from "./TodayItem";
+import { DEVICE_MAX_W } from "../../utils/constants";
 
 const StyledToday = styled.div`
   /* Box */
@@ -16,7 +17,14 @@ const StyledToday = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
-  grid-column: 1 / span 2;
+  grid-column: 1 / 3;
+  @media ${DEVICE_MAX_W.tablet} {
+    grid-column: 1 / span 2;
+  }
+  @media ${DEVICE_MAX_W.mobileL} {
+    grid-column: 1;
+  }
+
   padding-top: 2.4rem;
 `;
 
