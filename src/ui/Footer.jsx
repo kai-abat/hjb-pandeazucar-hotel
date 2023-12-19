@@ -1,6 +1,8 @@
 import { Icon } from "@iconify/react";
 import styled from "styled-components";
 import HotelPhoto from "./HotelPhoto";
+import useWindowDimensions from "../hooks/useWindowDimensions";
+import { DEVICE_MAX_W } from "../utils/constants";
 
 const StyledFooter = styled.div`
   display: flex;
@@ -19,11 +21,12 @@ const FooterContent = styled.div`
 
 const TechIconsContainer = styled.div`
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
 `;
 
 function Footer() {
-  const width = 36;
+  const { width: winWidth } = useWindowDimensions();
+  const width = winWidth <= 425 ? 30 : 36;
   return (
     <StyledFooter>
       <HotelPhoto src="logo.png" alt="" />
