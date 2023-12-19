@@ -1,6 +1,10 @@
 import styled, { css } from "styled-components";
 
 const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  /* width: 100rem; */
+  /* width: 20rem; */
   ${(props) =>
     props.type === "regular" &&
     css`
