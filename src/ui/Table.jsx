@@ -8,6 +8,7 @@ const StyledTable = styled.div`
   background-color: var(--color-grey-0);
   border-radius: 7px;
   overflow: hidden;
+  min-width: 100rem;
 `;
 
 const CommonRow = styled.div`
