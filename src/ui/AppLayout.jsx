@@ -1,15 +1,13 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
-import Sidebar from "./Sidebar";
-import styled, { css } from "styled-components";
-import { useApp } from "../context/AppContext";
-import { DEVICE_MAX_W } from "../utils/constants";
+import styled from "styled-components";
 import SidebarWithClose from "./SidebarWithClose";
+import Footer from "./Footer";
 
 const StyleAppLayout = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto 1fr auto auto;
   height: 100dvh;
 `;
 
@@ -37,7 +35,6 @@ const Container = styled.div`
 `;
 
 function AppLayout() {
-  const { showNav } = useApp();
   return (
     <>
       <StyleAppLayout>
@@ -49,6 +46,7 @@ function AppLayout() {
             <Outlet />
           </Container>
         </Main>
+        <Footer />
       </StyleAppLayout>
     </>
   );
