@@ -10,7 +10,7 @@ const StyledFooter = styled.div`
   justify-content: space-between;
   padding: 2rem 4rem 4rem 4rem;
   border-top: 1px solid var(--color-grey-100);
-  @media ${DEVICE_MAX_W.mobileS} {
+  @media ${DEVICE_MAX_W.mobileM2} {
     flex-direction: column;
     justify-content: flex-start;
     gap: 2rem;
