@@ -29,8 +29,8 @@ function BookingTable() {
 
         <Table.Body
           data={bookings}
-          render={(booking) => (
-            <BookingRow key={booking.id} booking={booking} />
+          render={(booking, index) => (
+            <BookingRow index={index} key={booking.id} booking={booking} />
           )}
         />
         <Table.Footer>

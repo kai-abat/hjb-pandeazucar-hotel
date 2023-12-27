@@ -8,6 +8,7 @@ import { useCreateCabins } from "./useCreateCabins";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import Table from "../../ui/Table";
 import Menus from "../../ui/Menus";
+import CabinPhotoViewer from "./CabinPhotoViewer";
 
 // const TableRow = styled.div`
 //   display: grid;
@@ -27,7 +28,9 @@ const Img = styled.img`
   aspect-ratio: 3 / 2;
   object-fit: cover;
   object-position: center;
-  transform: scale(1.5) translateX(-7px);
+  transform: scale(1.5) translateX(1px);
+  /* padding: 0.1rem; */
+  cursor: pointer;
 `;
 
 const Cabin = styled.div`
@@ -55,7 +58,7 @@ const Discount = styled.div`
   color: var(--color-green-700);
 `;
 
-function CabinRow({ cabin }) {
+function CabinRow({ cabin, index }) {
   const { isDeleting, deleteCabin } = useDeleteCabins(cabin);
   const { isCreating, createCabin } = useCreateCabins();
 
@@ -82,24 +85,16 @@ function CabinRow({ cabin }) {
 
   return (
     <>
-      <Table.Row>
-        <Img src={image} alt={name} />
-        <Cabin>{name}</Cabin>
-        <Capacity>Fits up to {maxCapacity} guest</Capacity>
-        <Price>{regularPrice}</Price>
-        {discount ? <Discount>{formatCurrency(discount)}</Discount> : "-"}
-        <div>
-          {/* Duplicate */}
-          {/* <button onClick={handleOnDelete} disabled={isDeleting}> */}
-          {/* <button onClick={handleDuplicate}>
-            <HiSquare2Stack />
-          </button> */}
-
-          {/* Change this to modal window */}
-          {/* <button onClick={() => setShowForm((show) => !show)}>
-            <HiPencil />
-          </button> */}
-          <Modal>
+      <Table.Row index={index}>
+        <Modal>
+          <Modal.Open opensWindowName="cabin-photo-viewer">
+            <Img src={image} alt={name} />
+          </Modal.Open>
+          <Cabin>{name}</Cabin>
+          <Capacity>Fits up to {maxCapacity} guest</Capacity>
+          <Price>{regularPrice}</Price>
+          {discount ? <Discount>{formatCurrency(discount)}</Discount> : "-"}
+          <div>
             <Menus.Menu>
               <Menus.Toggle id={cabinId} />
               <Menus.List id={cabinId}>
@@ -121,6 +116,11 @@ function CabinRow({ cabin }) {
                   <Menus.Button icon={<HiTrash />}>Delete</Menus.Button>
                 </Modal.Open>
               </Menus.List>
+
+              {/* Show Photo Viewer */}
+              <Modal.Window name="cabin-photo-viewer">
+                <CabinPhotoViewer image={image} />
+              </Modal.Window>
               {/* Modal Edit */}
               <Modal.Window name="edit-cabin-form">
                 <CreateCabinForm cabinToEdit={cabin} />
@@ -134,8 +134,8 @@ function CabinRow({ cabin }) {
                 />
               </Modal.Window>
             </Menus.Menu>
-          </Modal>
-        </div>
+          </div>
+        </Modal>
       </Table.Row>
       {/* {showForm && <CreateCabinForm cabinToEdit={cabin} />} */}
     </>

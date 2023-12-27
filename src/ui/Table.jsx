@@ -1,5 +1,20 @@
 import { createContext, useContext } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const staggerDelay = "50ms";
+const rowEntrance = keyframes`
+  from {
+    opacity: 0;
+    /* transform: scale(0.3); */
+    transform: translateY(-50%);
+    filter: hue-rotate(180deg);
+  }
+  to {
+    opacity: 1;
+    /* transform: scale(1); */
+    filter: hue-rotate(0deg);
+  }
+`;
 
 const StyledTable = styled.div`
   border: 1px solid var(--color-grey-200);
@@ -7,8 +22,8 @@ const StyledTable = styled.div`
   font-size: 1.4rem;
   background-color: var(--color-grey-0);
   border-radius: 7px;
-  overflow: hidden;
-  min-width: 100rem;
+  overflow: auto;
+  min-width: 10rem;
 `;
 
 const CommonRow = styled.div`
@@ -16,7 +31,9 @@ const CommonRow = styled.div`
   grid-template-columns: ${(props) => props.$columns};
   column-gap: 2.4rem;
   align-items: center;
-  transition: none;
+  /* transition: none; */
+  animation: ${rowEntrance} 700ms ease-out;
+  animation-fill-mode: backwards;
 `;
 
 const StyledHeader = styled(CommonRow)`
@@ -28,10 +45,13 @@ const StyledHeader = styled(CommonRow)`
   letter-spacing: 0.6px;
   font-weight: 600;
   color: var(--color-grey-0H);
+  animation-delay: calc(1 * ${staggerDelay});
 `;
 
 const StyledRow = styled(CommonRow)`
   padding: 1.2rem 2.4rem;
+
+  animation-delay: calc(${(props) => props.$index} * ${staggerDelay});
 
   &:not(:last-child) {
     border-bottom: 1px solid var(--color-grey-100);
@@ -66,7 +86,9 @@ const TableContext = createContext();
 function Table({ children, columns }) {
   return (
     <TableContext.Provider value={{ columns }}>
-      <StyledTable role="table">{children}</StyledTable>
+      <StyledTable id="table" role="table">
+        {children}
+      </StyledTable>
     </TableContext.Provider>
   );
 }
@@ -74,22 +96,22 @@ function Table({ children, columns }) {
 function Header({ children }) {
   const { columns } = useContext(TableContext);
   return (
-    <StyledHeader role="row" $columns={columns} as="header">
+    <StyledHeader id="header" role="row" $columns={columns} as="header">
       {children}
     </StyledHeader>
   );
 }
-function Row({ children }) {
+function Row({ index, children }) {
   const { columns } = useContext(TableContext);
   return (
-    <StyledRow role="row" $columns={columns}>
+    <StyledRow $index={index} id="row" role="row" $columns={columns}>
       {children}
     </StyledRow>
   );
 }
 function Body({ data, render }) {
   if (!data.length) return <Empty>No data for the moment</Empty>;
-  return <StyledBody>{data.map(render)}</StyledBody>;
+  return <StyledBody id="body">{data.map(render)}</StyledBody>;
 }
 
 Table.Header = Header;

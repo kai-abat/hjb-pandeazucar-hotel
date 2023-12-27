@@ -67,6 +67,7 @@ function BookingRow({
     guests: { fullName: guestName, email },
     cabins: { name: cabinName },
   },
+  index,
 }) {
   const navigate = useNavigate();
   const { isCheckingOut, checkout } = useCheckout();
@@ -78,7 +79,7 @@ function BookingRow({
   };
 
   return (
-    <Table.Row>
+    <Table.Row index={index}>
       <Cabin>{cabinName}</Cabin>
 
       <Stacked>
