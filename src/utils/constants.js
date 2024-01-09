@@ -32,7 +32,7 @@ export const ANON_USER = {
   role: "anon",
   email: "guest@gmail.com",
   user_metadata: {
-    fullName: "Anonymous",
+    fullName: "Guest",
     avatar: "default-user.jpg",
   },
 };
