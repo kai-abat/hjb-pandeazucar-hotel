@@ -140,12 +140,26 @@ function BookingRow({
 
             {status === "unconfirmed" && !isPaid && (
               <Modal.Open opensWindowName="delete-booking">
-                <Menus.Button icon={<HiOutlineTrash />} disabled={isDeleting}>
-                  Delete
+                <Menus.Button
+                  icon={<HiOutlineTrash />}
+                  // onClick={() => {
+                  //   deleteBooking(bookingId);
+                  // }}
+                  disabled={isDeleting}
+                >
+                  Delete Now
                 </Menus.Button>
               </Modal.Open>
             )}
           </Menus.List>
+          {/* Modal Delete */}
+          <Modal.Window name="delete-booking">
+            <ConfirmDelete
+              resourceName="cabin"
+              disabled={isDeleting}
+              onConfirm={() => deleteBooking(bookingId)}
+            />
+          </Modal.Window>
         </Menus.Menu>
       </Modal>
     </Table.Row>

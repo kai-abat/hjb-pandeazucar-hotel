@@ -25,3 +25,14 @@ export const DEVICE_MAX_W = {
   tablet: `(max-width:  ${deviceScreen.tablet.max})`,
   laptop: `(max-width:  ${deviceScreen.laptop.max})`,
 };
+
+export const ANON_USER = {
+  id: "none",
+  aud: "anon",
+  role: "anon",
+  email: "guest@gmail.com",
+  user_metadata: {
+    fullName: "Anonymous",
+    avatar: "default-user.jpg",
+  },
+};

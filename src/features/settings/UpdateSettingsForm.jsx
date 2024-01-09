@@ -1,3 +1,4 @@
+import { useApp } from "../../context/AppContext";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
@@ -6,6 +7,7 @@ import { useSettings } from "./useSettings";
 import { useUpdateSetting } from "./useUpdateSetting";
 
 function UpdateSettingsForm() {
+  const { isUserMode } = useApp();
   const {
     isLoading,
     settings: {
@@ -34,7 +36,7 @@ function UpdateSettingsForm() {
           type="number"
           id="min-nights"
           defaultValue={minBookingLength}
-          disabled={isUpdating}
+          disabled={isUpdating || !isUserMode}
           onBlur={(e) => handleUpdate(e, "minBookingLength")}
         />
       </FormRow>
@@ -43,7 +45,7 @@ function UpdateSettingsForm() {
         <Input
           type="number"
           id="max-nights"
-          disabled={isUpdating}
+          disabled={isUpdating || !isUserMode}
           defaultValue={maxBookingLength}
           onBlur={(e) => handleUpdate(e, "maxBookingLength")}
         />
@@ -53,7 +55,7 @@ function UpdateSettingsForm() {
         <Input
           type="number"
           id="max-guests"
-          disabled={isUpdating}
+          disabled={isUpdating || !isUserMode}
           defaultValue={maxGuestPerBooking}
           onBlur={(e) => handleUpdate(e, "maxGuestPerBooking")}
         />
@@ -63,7 +65,7 @@ function UpdateSettingsForm() {
         <Input
           type="number"
           id="breakfast-price"
-          disabled={isUpdating}
+          disabled={isUpdating || !isUserMode}
           defaultValue={breakfastPrice}
           onBlur={(e) => handleUpdate(e, "breakfastPrice")}
         />

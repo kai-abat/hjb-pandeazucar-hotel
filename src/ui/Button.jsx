@@ -10,7 +10,7 @@ const sizes = {
   `,
   medium: css`
     font-size: 1.4rem;
-    padding: 1.2rem 1.6rem;
+    padding: 1.2rem 2rem;
     font-weight: 500;
   `,
   large: css`
@@ -48,6 +48,14 @@ const variations = {
   `,
 };
 
+const types = {
+  text_icon: css`
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+  `,
+};
 const Button = styled.button`
   border: none;
   border-radius: var(--border-radius-sm);
@@ -56,11 +64,13 @@ const Button = styled.button`
 
   ${(props) => sizes[props.size]}
   ${(props) => variations[props.$variation]}
+  ${(props) => types[props.type]}
 `;
 
 Button.defaultProps = {
   size: "medium",
   $variation: "primary",
+  type: "text",
 };
 
 export default Button;

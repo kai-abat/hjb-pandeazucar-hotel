@@ -1,3 +1,4 @@
+import { getSession } from "./apiAuth";
 import supabase from "./supabase";
 
 export async function getSettings() {
@@ -12,6 +13,10 @@ export async function getSettings() {
 
 // We expect a newSetting object that looks like {setting: newValue}
 export async function updateSetting(newSetting) {
+  const { session } = getSession();
+  if (!session)
+    throw new Error("Settings cannot be updated. Please login now first.");
+
   const { data, error } = await supabase
     .from("settings")
     .update(newSetting)

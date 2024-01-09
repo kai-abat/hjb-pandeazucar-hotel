@@ -4,13 +4,21 @@ const AppContext = createContext();
 
 function AppProvider({ children }) {
   const [showNav, setShowNav] = useState(false);
+  const [isUserMode, setIsUserMode] = useState(false);
 
   const toggleNavBar = () => {
     setShowNav((cur) => !cur);
   };
 
   return (
-    <AppContext.Provider value={{ showNav, toggleNavBar }}>
+    <AppContext.Provider
+      value={{
+        showNav,
+        toggleNavBar,
+        isUserMode,
+        setIsUserMode,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );

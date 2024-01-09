@@ -17,6 +17,7 @@ import CheckIn from "./pages/CheckIn";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import { DarkModeProvider } from "./context/DarkModeContext";
 import { AppProvider } from "./context/AppContext";
+import ProtectedUsersRoute from "./ui/ProtectedUsersRoute";
 /* API USED
 React Router - Routing and Remote state management
 Styled Components - Styling
@@ -56,7 +57,14 @@ function App() {
                 <Route path="/checkin/:bookingId" element={<CheckIn />} />
                 <Route path="/cabins" element={<Cabins />} />
                 <Route path="/settings" element={<Settings />} />
-                <Route path="/users" element={<Users />} />
+                <Route
+                  path="/users"
+                  element={
+                    <ProtectedUsersRoute>
+                      <Users />
+                    </ProtectedUsersRoute>
+                  }
+                />
               </Route>
 
               <Route path="/login" element={<Login />} />

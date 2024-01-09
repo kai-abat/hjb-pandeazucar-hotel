@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useUser } from "./useUser";
+import { ANON_USER } from "../../utils/constants";
 
 const StyledUserAvatar = styled.div`
   display: flex;
@@ -23,7 +24,11 @@ const Avatar = styled.img`
 
 function UserAvatar() {
   const { user } = useUser();
-  const { fullName, avatar } = user.user_metadata;
+
+  const { fullName, avatar } = user
+    ? user.user_metadata
+    : ANON_USER.user_metadata;
+
   return (
     <StyledUserAvatar>
       <Avatar

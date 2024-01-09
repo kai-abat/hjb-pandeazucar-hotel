@@ -19,6 +19,10 @@ export const signup = async ({ fullName, email, password }) => {
 };
 
 export const login = async ({ email, password }) => {
+  if (email === "guest@gmail.com") {
+    return null;
+  }
+
   const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password,
@@ -73,4 +77,9 @@ export const updateCurrentUser = async ({ password, fullName, avatar }) => {
 
   if (error2) throw new Error(error2.message);
   return updatedUser;
+};
+
+export const getSession = async () => {
+  const { data: session } = await supabase.auth.getSession();
+  return session;
 };

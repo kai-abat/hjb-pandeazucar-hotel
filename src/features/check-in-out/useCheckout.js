@@ -14,7 +14,7 @@ export const useCheckout = () => {
       queryClient.invalidateQueries({ active: true });
     },
     onError: (err) => {
-      toast.error("There was an error while checking out!");
+      toast.error(err.message);
     },
   });
 

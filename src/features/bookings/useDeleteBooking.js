@@ -12,7 +12,9 @@ export const useDeleteBooking = () => {
         queryKey: ["bookings"],
       });
     },
-    onError: (err) => toast.error(err.message),
+    onError: (err) => {
+      toast.error(err.message);
+    },
   });
 
   return { isDeleting, deleteBooking };

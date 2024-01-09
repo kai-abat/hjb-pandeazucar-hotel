@@ -21,7 +21,7 @@ const StyleSidebar = styled.aside`
   /* transition: all 3s ease; */
 
   width: 35rem;
-  height: 100dvh;
+  min-height: 100dvh;
   z-index: 12 !important;
 
   box-shadow: var(--shadow-md);
@@ -38,7 +38,7 @@ const Overlay = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  min-height: 100dvh;
   backdrop-filter: blur(2px);
   z-index: 1000;
   transition: all 0.2s ease 50ms;

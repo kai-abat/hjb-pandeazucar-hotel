@@ -4,14 +4,20 @@ import ButtonIcon from "./ButtonIcon";
 import { HiOutlineUser } from "react-icons/hi2";
 import { useNavigate } from "react-router-dom";
 import DarkModeToggle from "./DarkModeToggle";
+import { useApp } from "../context/AppContext";
+import Login from "../features/authentication/Login";
 
 const StyledHeaderMenu = styled.ul`
   display: flex;
-  gap: 0.4rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
 `;
 
 function HeaderMenu() {
   const navigate = useNavigate();
+  const { isUserMode } = useApp();
+
   return (
     <StyledHeaderMenu>
       <li>
@@ -22,9 +28,7 @@ function HeaderMenu() {
       <li>
         <DarkModeToggle />
       </li>
-      <li>
-        <Logout />
-      </li>
+      <li>{isUserMode ? <Logout /> : <Login />}</li>
     </StyledHeaderMenu>
   );
 }

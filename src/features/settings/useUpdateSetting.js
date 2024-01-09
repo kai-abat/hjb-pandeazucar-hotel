@@ -7,13 +7,13 @@ export const useUpdateSetting = () => {
   const { isLoading: isUpdating, mutate: updateSetting } = useMutation({
     mutationFn: updateSettingAPI,
     onSuccess: () => {
-      toast.success("Setting successfully edited");
+      toast.success("Setting successfully updated.");
       queryClient.invalidateQueries({
         queryKey: ["settings"],
       });
     },
     onError: (err) => {
-      toast.error(err.message + "settings!");
+      toast.error(err.message);
     },
   });
   return { isUpdating, updateSetting };

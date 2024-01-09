@@ -1,3 +1,4 @@
+import { getSession } from "./apiAuth";
 import supabase, { supabaseUrl } from "./supabase";
 
 // Select *
@@ -13,6 +14,11 @@ export const getCabins = async () => {
 
 // Insert/Update
 export const createEditCabin = async (newCabin, id) => {
+  // Check if authenticated user
+  const { session } = await getSession();
+  if (!session)
+    throw new Error("Only logged-in users can create and edit the cabins.");
+
   const hasImagePath = newCabin.image?.startsWith?.(supabaseUrl);
   const imageName = `${Math.random()}-${newCabin.image.name}`.replaceAll(
     "/",
@@ -57,6 +63,10 @@ export const createEditCabin = async (newCabin, id) => {
 };
 
 export const deleteCabin = async (id, name) => {
+  // Check if authenticated user
+  const { session } = await getSession();
+  if (!session) throw new Error("Only logged-in users can delete any cabins.");
+
   const { error } = await supabase.from("cabins").delete().eq("id", id);
   if (error) {
     console.log(error);

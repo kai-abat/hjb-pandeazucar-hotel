@@ -1,5 +1,6 @@
 import { PAGE_SIZE } from "../utils/constants";
 import { getToday } from "../utils/helpers";
+import { getSession } from "./apiAuth";
 import supabase from "./supabase";
 
 export async function getBookings({ filter, sortBy, page }) {
@@ -103,6 +104,11 @@ export async function getStaysTodayActivity() {
 }
 
 export async function updateBooking(id, obj) {
+  // Check if authenticated user
+  const { session } = await getSession();
+  if (!session)
+    throw new Error("Only logged-in users can do any changes in the booking.");
+
   const { data, error } = await supabase
     .from("bookings")
     .update(obj)
@@ -118,6 +124,11 @@ export async function updateBooking(id, obj) {
 }
 
 export async function deleteBooking(id) {
+  // Check if authenticated user
+  const { session } = await getSession();
+  if (!session)
+    throw new Error("Only logged-in users are allowed to delete any booking.");
+
   // REMEMBER RLS POLICIES
   const { data, error } = await supabase.from("bookings").delete().eq("id", id);
 

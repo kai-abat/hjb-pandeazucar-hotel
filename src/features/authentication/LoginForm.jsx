@@ -5,20 +5,27 @@ import Input from "../../ui/Input";
 import FormRowVertical from "../../ui/FormRowVertical";
 import { useLogin } from "./useLogin";
 import SpinnerMini from "../../ui/SpinnerMini";
+import { useAnonLogin } from "./useAnonLogin";
 
 function LoginForm() {
   // email: jexik11258@bayxs.com
   // pw: fake1234
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("guest@gmail.com");
+  const [password, setPassword] = useState("fake1234");
   // const [email, setEmail] = useState("jexik11258@bayxs.com");
   // const [password, setPassword] = useState("fake1234");
 
   const { login, isLoading } = useLogin();
+  const anonLogin = useAnonLogin();
 
   function handleSubmit(e) {
     e.preventDefault();
     if (!email || !password) return;
+
+    if (email === "guest@gmail.com") {
+      anonLogin();
+      return;
+    }
     login(
       { email, password },
       {
