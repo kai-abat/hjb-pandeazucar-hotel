@@ -6,6 +6,7 @@ import FormRowVertical from "../../ui/FormRowVertical";
 import { useLogin } from "./useLogin";
 import SpinnerMini from "../../ui/SpinnerMini";
 import { useAnonLogin } from "./useAnonLogin";
+import InputPassword from "../../ui/InputPassword";
 
 function LoginForm() {
   // email: jexik11258@bayxs.com
@@ -45,6 +46,7 @@ function LoginForm() {
           id="email"
           // This makes this form better for password managers
           autoComplete="username"
+          placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           disabled={isLoading}
@@ -52,14 +54,21 @@ function LoginForm() {
       </FormRowVertical>
 
       <FormRowVertical label="Password">
-        <Input
-          type="password"
-          id="password"
-          autoComplete="current-password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          disabled={isLoading}
-        />
+        <>
+          {/* <Input
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            disabled={isLoading}
+          /> */}
+          <InputPassword
+            disabled={isLoading}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </>
       </FormRowVertical>
 
       <FormRowVertical>
