@@ -1,7 +1,9 @@
+import { HiOutlineSquares2X2, HiOutlineTableCells } from "react-icons/hi2";
+
 export const PAGE_SIZE = 10;
 
 const deviceScreen = {
-  mobileS: { min: "320px", max: "375px" },
+  mobileS: { min: "0", max: "375px" },
   mobileM: { min: "375px", max: "425px" },
   mobileM2: { min: "425px", max: "500px" },
   mobileL: { min: "425px", max: "768px" },
@@ -26,6 +28,15 @@ export const DEVICE_MAX_W = {
   laptop: `(max-width:  ${deviceScreen.laptop.max})`,
 };
 
+export const DEVICE_MIN_W = {
+  mobileS: `(min-width: ${deviceScreen.mobileS.min})`,
+  mobileM: `(min-width: ${deviceScreen.mobileM.min})`,
+  mobileM2: `(min-width: ${deviceScreen.mobileM2.min})`,
+  mobileL: `(min-width: ${deviceScreen.mobileL.min})`,
+  tablet: `(min-width:  ${deviceScreen.tablet.min})`,
+  laptop: `(min-width:  ${deviceScreen.laptop.max})`,
+};
+
 export const ANON_USER = {
   id: "none",
   aud: "anon",
@@ -35,4 +46,12 @@ export const ANON_USER = {
     fullName: "Guest",
     avatar: "default-user.jpg",
   },
+};
+
+export const DISPLAY_MODE = {
+  modeField: "display",
+  options: [
+    { value: "table", icon: HiOutlineTableCells },
+    { value: "card", icon: HiOutlineSquares2X2 },
+  ],
 };

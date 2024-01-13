@@ -1,16 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { useUrl } from "../hooks/useUrl";
-
-const StyledFilter = styled.div`
-  border: 1px solid var(--color-grey-100);
-  background-color: var(--color-grey-0);
-  box-shadow: var(--shadow-sm);
-  border-radius: var(--border-radius-sm);
-  padding: 0.4rem;
-  display: flex;
-  gap: 0.4rem;
-`;
+import Container from "./Container";
 
 const FilterButton = styled.button`
   background-color: var(--color-grey-0);
@@ -49,7 +40,7 @@ function Filter({ filterField, options }) {
   };
 
   return (
-    <StyledFilter>
+    <Container direction="row">
       {options.map((option) => (
         <FilterButton
           onClick={() => handleClick(option.value)}
@@ -60,7 +51,7 @@ function Filter({ filterField, options }) {
           {option.label}
         </FilterButton>
       ))}
-    </StyledFilter>
+    </Container>
   );
 }
 

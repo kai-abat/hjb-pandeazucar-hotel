@@ -6,9 +6,10 @@ const StyledLogo = styled(NavLink)`
   /* text-align: center; */
   font-family: "Mate SC", "Poppins", sans-serif;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 1rem;
+  width: 15rem;
 
   ${(props) =>
     props.$pos === "sidebar" &&

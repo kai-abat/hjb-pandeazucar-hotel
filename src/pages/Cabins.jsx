@@ -3,16 +3,25 @@ import Heading from "../ui/Heading";
 import Row from "../ui/Row";
 import AddCabin from "../features/cabins/AddCabin";
 import CabinTableOperations from "../features/cabins/CabinTableOperations";
+import CabinCard from "../features/cabins/CabinCard";
+import { useSearchParams } from "react-router-dom";
+import { DISPLAY_MODE } from "../utils/constants";
 // import { getCabins } from "../services/apiCabins";
 
 function Cabins() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentMode =
+    searchParams.get(DISPLAY_MODE.modeField) ||
+    DISPLAY_MODE.options.at(0).value;
+
+  console.log("Cabins", currentMode);
   // TEST Side Effect fetching cabins from supabase api
   // useEffect(function () {
   //   getCabins().then((data) => console.log(data));
   // }, []);
   return (
     <>
-      <Row type="horizontal">
+      <Row id="operations" type="horizontal">
         <Heading as="h1">All cabins</Heading>
         <CabinTableOperations />
         {/* <img
@@ -22,7 +31,9 @@ function Cabins() {
       </Row>
 
       <Row>
-        <CabinTable />
+        {currentMode === "table" && <CabinTable />}
+        {currentMode === "card" && <CabinCard />}
+
         <AddCabin />
       </Row>
     </>

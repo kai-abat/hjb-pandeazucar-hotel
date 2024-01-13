@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 const ButtonIcon = styled.button`
   background: none;
   border: none;
-  padding: 1.2rem;
+  padding: 0.5rem;
   border-radius: var(--border-radius-sm);
   transition: all 0.2s;
   display: flex;
@@ -16,8 +16,7 @@ const ButtonIcon = styled.button`
   }
 
   & svg {
-    width: 2.8rem;
-    height: 2.8rem;
+    font-size: 1.8em;
     color: var(--color-brand-600);
   }
 

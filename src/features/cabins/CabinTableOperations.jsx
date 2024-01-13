@@ -1,10 +1,16 @@
 import Filter from "../../ui/Filter";
 import SortBy from "../../ui/SortBy";
 import TableOperations from "../../ui/TableOperations";
+import DisplayMode from "../../ui/DisplayMode";
+import { DISPLAY_MODE } from "../../utils/constants";
 
 function CabinTableOperations() {
   return (
     <TableOperations>
+      <DisplayMode
+        modeField={DISPLAY_MODE.modeField}
+        options={DISPLAY_MODE.options}
+      />
       <Filter
         filterField="discount"
         options={[

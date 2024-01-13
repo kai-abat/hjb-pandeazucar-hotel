@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { DEVICE_MIN_W } from "../utils/constants";
 
 const GlobalStyles = createGlobalStyle`
 :root {
@@ -36,9 +37,10 @@ const GlobalStyles = createGlobalStyle`
 
     --backdrop-color: rgba(255, 255, 255, 0.1);
 
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-    --shadow-md: 0px 0.6rem 2.4rem rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 2.4rem 3.2rem rgba(0, 0, 0, 0.12);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0px 0.6rem 2.4rem rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 2.4rem 3.2rem rgba(0, 0, 0, 0.4);
+
 
     --image-grayscale: 0;
     --image-opacity: 100%;
@@ -67,7 +69,7 @@ const GlobalStyles = createGlobalStyle`
     --color-silver-100: #374151;
     --color-silver-700: #f3f4f6;
     --color-indigo-100: #3730a3;
-    --color-indigo-700: #e0e7ff;
+    --color-indigo-700: #6366f1;
 
     --color-red-100: #fee2e2;
     --color-red-700: #b91c1c;
@@ -115,7 +117,7 @@ const GlobalStyles = createGlobalStyle`
 }
 
 html {
-  font-size: 62.5%;
+  /* font-size: 62.5%; */
 }
 
 body {
@@ -125,8 +127,16 @@ body {
   transition: color 0.3s, background-color 0.3s;
   min-height: 100vh;
   line-height: 1.5;
-  font-size: 1.6rem;
+  
+  /* font-size: clamp(16px, 2vw, 14); */
   background-color: var(--color-grey-50);
+  
+  @media ${DEVICE_MIN_W.mobileS} {
+    font-size: 16px;
+  }
+  @media ${DEVICE_MIN_W.tablet} {
+    font-size: 14px;
+  }
 }
 
 input,
