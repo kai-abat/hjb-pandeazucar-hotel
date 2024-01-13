@@ -2,9 +2,11 @@ import { useSearchParams } from "react-router-dom";
 import styled, { css } from "styled-components";
 import Container from "./Container";
 import { DEVICE_MIN_W } from "../utils/constants";
+import Button from "./Button";
 
 const FilterButton = styled.button`
-  background-color: var(--color-grey-0);
+  background-color: var(--color-grey-50);
+  padding: 0.7rem 2rem;
   border: none;
 
   ${(props) =>
@@ -17,7 +19,7 @@ const FilterButton = styled.button`
   border-radius: var(--border-radius-sm);
   font-weight: 500;
   /* To give the same height as select */
-  padding: 0.44rem 0.8rem;
+  /* padding: 0.7rem 0.8rem; */
   transition: all 0.3s;
 
   &:hover:not(:disabled) {
@@ -29,7 +31,9 @@ const FilterButton = styled.button`
   }
   @media ${DEVICE_MIN_W.mobileL} {
     min-width: 8rem;
-    width: max-content;
+    /* width: max-content; */
+    /* width: 100%; */
+    width: fit-content;
   }
 `;
 

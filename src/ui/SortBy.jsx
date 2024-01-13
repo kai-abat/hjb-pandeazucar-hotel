@@ -1,5 +1,6 @@
 import Select from "./Select";
 import { useUrl } from "../hooks/useUrl";
+import Container from "./Container";
 
 function SortBy({ options }) {
   const fieldValue = "sortBy";
@@ -7,12 +8,14 @@ function SortBy({ options }) {
   const sortBy = searchParams.get(fieldValue);
 
   return (
-    <Select
-      options={options}
-      type="white"
-      value={sortBy === null ? "" : sortBy}
-      onChange={(e) => handleChange(e.target.value)}
-    />
+    <Container direction="row">
+      <Select
+        options={options}
+        type="white"
+        value={sortBy === null ? "" : sortBy}
+        onChange={(e) => handleChange(e.target.value)}
+      />
+    </Container>
   );
 }
 

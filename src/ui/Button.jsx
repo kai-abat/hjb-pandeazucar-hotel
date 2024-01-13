@@ -10,7 +10,7 @@ const sizes = {
   `,
   medium: css`
     font-size: 1.1em;
-    padding: 1.2rem 2rem;
+    padding: 0.7rem 2rem;
     font-weight: 500;
   `,
   large: css`
@@ -23,10 +23,10 @@ const sizes = {
 const variations = {
   primary: css`
     color: var(--color-brand-50);
-    background-color: var(--color-brand-600);
+    background-color: var(--color-brand-700);
 
     &:hover {
-      background-color: var(--color-brand-700);
+      background-color: var(--color-brand-800);
     }
   `,
   secondary: css`

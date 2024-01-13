@@ -29,17 +29,15 @@ function Cabins() {
       <Row id="operations" type={operationType}>
         <Heading as="h1">All cabins</Heading>
         <CabinTableOperations />
-        {/* <img
-        src="https://kighqptumqibztqeobqm.supabase.co/storage/v1/object/public/cabin/cabin-001.jpg"
-        alt="cabin1"
-      /> */}
+      </Row>
+
+      <Row id="cabin-nav-buttons">
+        <AddCabin />
       </Row>
 
       <Row>
         {currentMode === "table" && <CabinTable />}
         {currentMode === "card" && <CabinCard />}
-
-        <AddCabin />
       </Row>
     </>
   );
