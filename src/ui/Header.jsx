@@ -29,11 +29,11 @@ const StyleHeader = styled.header`
 `;
 
 const HeaderMenuContainer = styled.div`
+  /* background-color: red; */
   display: flex;
   align-items: center;
   gap: 2.4rem;
   flex-basis: content;
-  width: 100%;
 
   @media ${DEVICE_MIN_W.mobileS} {
     /* flex-direction: column; */

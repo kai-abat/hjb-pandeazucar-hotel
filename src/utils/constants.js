@@ -2,13 +2,13 @@ import { HiOutlineSquares2X2, HiOutlineTableCells } from "react-icons/hi2";
 
 export const PAGE_SIZE = 10;
 
-const deviceScreen = {
-  mobileS: { min: "0", max: "375px" },
-  mobileM: { min: "375px", max: "425px" },
-  mobileM2: { min: "425px", max: "500px" },
-  mobileL: { min: "425px", max: "768px" },
-  tablet: { min: "768px", max: "1024px" },
-  laptop: { min: "1025px", max: "1440px" },
+export const DEVICE_SCREEN = {
+  mobileS: { min: 0, max: 375 },
+  mobileM: { min: 375, max: 425 },
+  mobileM2: { min: 425, max: 500 },
+  mobileL: { min: 425, max: 768 },
+  tablet: { min: 768, max: 1024 },
+  laptop: { min: 1025, max: 4000 },
 };
 
 // export const DEVICE_MAX_W = {
@@ -20,21 +20,21 @@ const deviceScreen = {
 // };
 
 export const DEVICE_MAX_W = {
-  mobileS: `(max-width: ${deviceScreen.mobileS.max})`,
-  mobileM: `(max-width: ${deviceScreen.mobileM.max})`,
-  mobileM2: `(max-width: ${deviceScreen.mobileM2.max})`,
-  mobileL: `(max-width: ${deviceScreen.mobileL.max})`,
-  tablet: `(max-width:  ${deviceScreen.tablet.max})`,
-  laptop: `(max-width:  ${deviceScreen.laptop.max})`,
+  mobileS: `(max-width: ${DEVICE_SCREEN.mobileS.max}px)`,
+  mobileM: `(max-width: ${DEVICE_SCREEN.mobileM.max}px)`,
+  mobileM2: `(max-width: ${DEVICE_SCREEN.mobileM2.max}px)`,
+  mobileL: `(max-width: ${DEVICE_SCREEN.mobileL.max}px)`,
+  tablet: `(max-width:  ${DEVICE_SCREEN.tablet.max}px)`,
+  laptop: `(max-width:  ${DEVICE_SCREEN.laptop.max}px)`,
 };
 
 export const DEVICE_MIN_W = {
-  mobileS: `(min-width: ${deviceScreen.mobileS.min})`,
-  mobileM: `(min-width: ${deviceScreen.mobileM.min})`,
-  mobileM2: `(min-width: ${deviceScreen.mobileM2.min})`,
-  mobileL: `(min-width: ${deviceScreen.mobileL.min})`,
-  tablet: `(min-width:  ${deviceScreen.tablet.min})`,
-  laptop: `(min-width:  ${deviceScreen.laptop.max})`,
+  mobileS: `(min-width: ${DEVICE_SCREEN.mobileS.min}px)`,
+  mobileM: `(min-width: ${DEVICE_SCREEN.mobileM.min}px)`,
+  mobileM2: `(min-width: ${DEVICE_SCREEN.mobileM2.min}px)`,
+  mobileL: `(min-width: ${DEVICE_SCREEN.mobileL.min}px)`,
+  tablet: `(min-width:  ${DEVICE_SCREEN.tablet.min}px)`,
+  laptop: `(min-width:  ${DEVICE_SCREEN.laptop.max}px)`,
 };
 
 export const ANON_USER = {
@@ -53,5 +53,13 @@ export const DISPLAY_MODE = {
   options: [
     { value: "table", icon: HiOutlineTableCells },
     { value: "card", icon: HiOutlineSquares2X2 },
+  ],
+};
+
+export const DISPLAY_MODE_M = {
+  modeField: "display",
+  options: [
+    { value: "card", icon: HiOutlineSquares2X2 },
+    { value: "table", icon: HiOutlineTableCells },
   ],
 };

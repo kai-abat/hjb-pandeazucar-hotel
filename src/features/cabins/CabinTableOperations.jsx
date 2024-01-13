@@ -2,9 +2,10 @@ import Filter from "../../ui/Filter";
 import SortBy from "../../ui/SortBy";
 import TableOperations from "../../ui/TableOperations";
 import DisplayMode from "../../ui/DisplayMode";
-import { DISPLAY_MODE } from "../../utils/constants";
+import useDisplayMode from "../../hooks/useDisplayMode";
 
 function CabinTableOperations() {
+  const { mode, currentMode } = useDisplayMode();
   return (
     <TableOperations>
       <Filter
@@ -26,8 +27,9 @@ function CabinTableOperations() {
         ]}
       />
       <DisplayMode
-        modeField={DISPLAY_MODE.modeField}
-        options={DISPLAY_MODE.options}
+        modeField={mode.modeField}
+        options={mode.options}
+        currentMode={currentMode}
       />
     </TableOperations>
   );

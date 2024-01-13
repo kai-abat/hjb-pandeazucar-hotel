@@ -62,10 +62,10 @@ const CabinCard = () => {
   return (
     <Container direction="row" id="cabin-card-container">
       {sortedCabins.map((cabin, index) => (
-        <Card id="cabin-card" key={index}>
+        <Card key={index}>
           <Card.Image imageSrc={cabin.image} alt={cabin.name} />
-          <Card.Title>{cabin.name}</Card.Title>
-          <Card.Content>
+          {/* <Card.Title>{cabin.name}</Card.Title> */}
+          {/* <Card.Content>
             <Description>{cabin.description}</Description>
             <Heading as="h5">
               <Capacity>Fits up to {cabin.maxCapacity} guest</Capacity>
@@ -73,7 +73,7 @@ const CabinCard = () => {
             <Heading as="h4">
               <Price origPrice={cabin.regularPrice} discount={cabin.discount} />
             </Heading>
-          </Card.Content>
+          </Card.Content> */}
         </Card>
       ))}
     </Container>

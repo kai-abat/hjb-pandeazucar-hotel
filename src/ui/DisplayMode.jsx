@@ -14,10 +14,8 @@ const Button = styled.button`
   }
 `;
 
-const DisplayMode = ({ modeField, options }) => {
+const DisplayMode = ({ modeField, options, currentMode }) => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const currentFilter = searchParams.get(modeField) || options.at(0).value;
-
   const handleClick = (value) => {
     searchParams.set(modeField, value);
     setSearchParams(searchParams);
@@ -27,7 +25,7 @@ const DisplayMode = ({ modeField, options }) => {
     <Container direction="row">
       {options.map(
         (opt) =>
-          opt.value !== currentFilter && (
+          opt.value !== currentMode && (
             <Button key={opt.value} onClick={() => handleClick(opt.value)}>
               <opt.icon />
             </Button>

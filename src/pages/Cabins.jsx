@@ -5,16 +5,18 @@ import AddCabin from "../features/cabins/AddCabin";
 import CabinTableOperations from "../features/cabins/CabinTableOperations";
 import CabinCard from "../features/cabins/CabinCard";
 import { useSearchParams } from "react-router-dom";
-import { DISPLAY_MODE } from "../utils/constants";
+import {
+  DEVICE_SCREEN,
+  DISPLAY_MODE,
+  DISPLAY_MODE_M,
+} from "../utils/constants";
 import useWindowDimensions from "../hooks/useWindowDimensions";
+import useDisplayMode from "../hooks/useDisplayMode";
 // import { getCabins } from "../services/apiCabins";
 
 function Cabins() {
   const { width: vpWidth } = useWindowDimensions();
-  const [searchParams, setSearchParams] = useSearchParams();
-  const currentMode =
-    searchParams.get(DISPLAY_MODE.modeField) ||
-    DISPLAY_MODE.options.at(0).value;
+  const { mode, currentMode } = useDisplayMode();
 
   const operationType = vpWidth < 1300 ? "vertical" : "horizontal";
 

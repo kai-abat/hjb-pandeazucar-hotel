@@ -16,7 +16,6 @@ const Container = styled(CommonDiv)`
   border: 1px solid var(--color-grey-200);
   border-radius: 7px;
   box-shadow: var(--shadow-sm);
-
   width: 100%;
 
   @media ${DEVICE_MIN_W.mobileS} {
@@ -34,14 +33,10 @@ const Img = styled.img`
   aspect-ratio: 3 / 2;
   object-fit: cover;
   object-position: center;
-  width: 10%;
+  min-width: 10px;
+  min-height: 10px;
+  width: 100%;
   height: auto;
-  @media ${DEVICE_MIN_W.tablet} {
-    width: 100%;
-  }
-  @media ${DEVICE_MIN_W.laptop} {
-    width: 100%;
-  }
 `;
 
 const StyledTitle = styled(CommonDiv)`
@@ -60,7 +55,7 @@ const StyledContent = styled(CommonDiv)`
 `;
 
 const Card = ({ children }) => {
-  return <Container>{children}</Container>;
+  return <Container id="card">{children}</Container>;
 };
 
 const Image = ({ imageSrc, name }) => {

@@ -3,6 +3,7 @@ import Header from "./Header";
 import styled from "styled-components";
 import SidebarWithClose from "./SidebarWithClose";
 import Footer from "./Footer";
+import { DEVICE_MIN_W } from "../utils/constants";
 
 const StyleAppLayout = styled.div`
   display: grid;
@@ -22,7 +23,11 @@ const StyleAppLayout = styled.div`
 
 const Main = styled.main`
   background-color: var(--color-grey-50);
-  padding: 1rem 3rem 6rem 3rem;
+  padding: 0.5rem 0.8rem;
+
+  @media ${DEVICE_MIN_W.tablet} {
+    padding: 1rem 3rem 6rem 3rem;
+  }
   /* overflow: scroll; */
 `;
 
