@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { DEVICE_MIN_W } from "../utils/constants";
 
 const LogoContainer = styled.div`
   display: flex;
