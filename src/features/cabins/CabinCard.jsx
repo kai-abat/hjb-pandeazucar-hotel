@@ -9,6 +9,8 @@ import { MdOutlineDiscount } from "react-icons/md";
 import ButtonIcon from "../../ui/ButtonIcon";
 import Price from "../../ui/Price";
 import { DEVICE_MIN_W } from "../../utils/constants";
+import Menus from "../../ui/Menus";
+import { HiPencil, HiSquare2Stack, HiTrash } from "react-icons/hi2";
 
 const CommonDiv = styled.div`
   display: flex;
@@ -64,21 +66,32 @@ const CabinCard = () => {
   if (!sortedCabins.length) return <Empty resource="cabins" />;
 
   return (
-    <Container direction="row" id="cabin-card-container">
-      {sortedCabins.map((cabin, index) => (
-        <Card key={index}>
-          <Card.Image imageSrc={cabin.image} alt={cabin.name} />
-          <Card.Title>{cabin.name}</Card.Title>
-          <Card.Content>
-            <Description>{cabin.description}</Description>
+    <Menus>
+      <Container direction="row" id="cabin-card-container">
+        {sortedCabins.map((cabin, index) => (
+          <Card key={index}>
+            <Card.Image imageSrc={cabin.image} alt={cabin.name} />
+            <Card.Title>{cabin.name}</Card.Title>
+            <Card.Content>
+              <Description>{cabin.description}</Description>
 
-            <Capacity>Fits up to {cabin.maxCapacity} guest</Capacity>
+              <Capacity>Fits up to {cabin.maxCapacity} guest</Capacity>
 
-            <Price origPrice={cabin.regularPrice} discount={cabin.discount} />
-          </Card.Content>
-        </Card>
-      ))}
-    </Container>
+              <Price origPrice={cabin.regularPrice} discount={cabin.discount} />
+            </Card.Content>
+            <Card.NavButtons>
+              <Card.Button icon={<HiSquare2Stack />} label="Duplicate" />
+              <Card.Button icon={<HiPencil />} label="Edit" />
+              <Card.Button
+                icon={<HiTrash />}
+                variation="danger"
+                label="Delete"
+              />
+            </Card.NavButtons>
+          </Card>
+        ))}
+      </Container>
+    </Menus>
   );
 };
 

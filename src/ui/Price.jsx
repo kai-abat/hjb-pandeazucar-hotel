@@ -43,7 +43,7 @@ const Price = ({ origPrice, discount }) => {
           <span>&#40;</span>
           <MdOutlineDiscount />
           <span>{formatCurrency(discount)}</span>
-          <span>OFF &#41;</span>
+          <span>&#41;</span>
         </DiscountContainer>
       )}
     </Container>

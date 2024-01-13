@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { DEVICE_MIN_W } from "../utils/constants";
-import Heading from "./Heading";
+import Button from "./Button";
+import { Tooltip } from "react-tooltip";
 
 const CommonDiv = styled.div`
   display: flex;
@@ -9,6 +10,7 @@ const CommonDiv = styled.div`
 `;
 
 const Container = styled(CommonDiv)`
+  position: relative;
   padding: 2rem 1.5rem;
   gap: 1rem;
   flex-direction: column;
@@ -58,8 +60,47 @@ const StyledContent = styled(CommonDiv)`
   gap: 1rem;
 `;
 
+const ButtonContainer = styled.div`
+  position: absolute;
+  top: 50px;
+  right: 40px;
+  display: flex;
+  /* justify-content: space-evenly; */
+  /* justify-content: space-around; */
+  justify-content: flex-start;
+  align-items: end;
+  flex-direction: column;
+
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  /* width: 100%; */
+`;
+
+const StyledButton = styled(Button)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 0.5rem 0.5rem;
+  background-color: transparent;
+  background-color: var(--backdrop-color);
+  backdrop-filter: blur(4px);
+  border-radius: var(--border-radius-full);
+  min-width: max-content;
+  gap: 0.5rem;
+  font-size: 1.5em;
+
+  & svg {
+    color: var(--color-grey-900);
+  }
+`;
+
 const Card = ({ children }) => {
-  return <Container id="card">{children}</Container>;
+  return (
+    <>
+      <Container id="card">{children}</Container>
+    </>
+  );
 };
 
 const Image = ({ imageSrc, name }) => {
@@ -77,8 +118,28 @@ const Content = ({ children }) => {
   return <StyledContent>{children}</StyledContent>;
 };
 
+const NavButtons = ({ children }) => {
+  return <ButtonContainer>{children}</ButtonContainer>;
+};
+
+const CardButton = ({ label, icon, variation = "primary" }) => {
+  return (
+    <>
+      <StyledButton
+        $variation={variation}
+        data-tooltip-id="tooltip-right"
+        data-tooltip-content={label}
+      >
+        {icon}
+      </StyledButton>
+    </>
+  );
+};
+
 Card.Image = Image;
 Card.Title = Title;
 Card.Content = Content;
+Card.NavButtons = NavButtons;
+Card.Button = CardButton;
 
 export default Card;
