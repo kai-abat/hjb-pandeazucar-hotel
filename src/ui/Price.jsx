@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { formatCurrency } from "../utils/helpers";
 import { MdOutlineDiscount } from "react-icons/md";
+import { DEVICE_MIN_W } from "../utils/constants";
 
 const Container = styled.div`
   font-weight: 600;
@@ -9,6 +10,9 @@ const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 0.5rem;
+  @media ${DEVICE_MIN_W.tablet} {
+    font-size: 1.4em;
+  }
 `;
 
 const FinalPrice = styled.span`

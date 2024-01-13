@@ -8,6 +8,7 @@ import Heading from "../../ui/Heading";
 import { MdOutlineDiscount } from "react-icons/md";
 import ButtonIcon from "../../ui/ButtonIcon";
 import Price from "../../ui/Price";
+import { DEVICE_MIN_W } from "../../utils/constants";
 
 const CommonDiv = styled.div`
   display: flex;
@@ -48,6 +49,9 @@ const Description = styled.div`
 
 const Capacity = styled.div`
   color: var(--color-grey-600);
+  @media ${DEVICE_MIN_W.tablet} {
+    font-size: 1.2em;
+  }
 `;
 
 const CabinCard = () => {
@@ -64,16 +68,14 @@ const CabinCard = () => {
       {sortedCabins.map((cabin, index) => (
         <Card key={index}>
           <Card.Image imageSrc={cabin.image} alt={cabin.name} />
-          {/* <Card.Title>{cabin.name}</Card.Title> */}
-          {/* <Card.Content>
+          <Card.Title>{cabin.name}</Card.Title>
+          <Card.Content>
             <Description>{cabin.description}</Description>
-            <Heading as="h5">
-              <Capacity>Fits up to {cabin.maxCapacity} guest</Capacity>
-            </Heading>
-            <Heading as="h4">
-              <Price origPrice={cabin.regularPrice} discount={cabin.discount} />
-            </Heading>
-          </Card.Content> */}
+
+            <Capacity>Fits up to {cabin.maxCapacity} guest</Capacity>
+
+            <Price origPrice={cabin.regularPrice} discount={cabin.discount} />
+          </Card.Content>
         </Card>
       ))}
     </Container>

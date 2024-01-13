@@ -44,6 +44,10 @@ const StyledTitle = styled(CommonDiv)`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  @media ${DEVICE_MIN_W.tablet} {
+    font-size: 1.4em;
+  }
 `;
 
 const StyledContent = styled(CommonDiv)`
@@ -64,7 +68,8 @@ const Image = ({ imageSrc, name }) => {
 const Title = ({ children }) => {
   return (
     <StyledTitle>
-      <Heading as="h3">{children}</Heading>
+      {children}
+      {/* <Heading as="h3">{children}</Heading> */}
     </StyledTitle>
   );
 };
