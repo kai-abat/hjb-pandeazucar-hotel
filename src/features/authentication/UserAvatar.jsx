@@ -7,8 +7,9 @@ const StyledUserAvatar = styled.div`
   gap: 1.2rem;
   align-items: center;
   font-weight: 500;
-  font-size: 1.4rem;
+  font-size: 1.4em;
   color: var(--color-grey-600);
+  width: max-content;
 `;
 
 const Avatar = styled.img`

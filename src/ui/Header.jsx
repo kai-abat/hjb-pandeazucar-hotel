@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import HeaderMenu from "./HeaderMenu";
 import UserAvatar from "../features/authentication/UserAvatar";
-import { DEVICE_MAX_W, DEVICE_MIN_W } from "../utils/constants";
+import { DEVICE_MIN_W } from "../utils/constants";
 import Logo from "./Logo";
 import ButtonSideBar from "./ButtonSideBar";
 import LogoContainer from "./LogoContainer";
@@ -13,6 +13,7 @@ const StyleHeader = styled.header`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  width: 100%;
 
   @media ${DEVICE_MIN_W.mobileS} {
     padding: 1rem 0.5rem;
@@ -31,19 +32,17 @@ const HeaderMenuContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 2.4rem;
-  width: 100%;
   flex-basis: content;
+  width: 100%;
 
   @media ${DEVICE_MIN_W.mobileS} {
+    /* flex-direction: column; */
     padding: 0 0.5rem;
     justify-content: flex-start;
     flex-wrap: wrap;
   }
-  @media ${DEVICE_MIN_W.mobileM2} {
-    flex-wrap: nowrap;
-    justify-content: space-between;
-  }
   @media ${DEVICE_MIN_W.tablet} {
+    /* flex-direction: row; */
     padding: 0;
     justify-content: flex-end;
   }
@@ -52,11 +51,11 @@ const HeaderMenuContainer = styled.div`
 function Header() {
   return (
     <StyleHeader>
-      <LogoContainer>
+      <LogoContainer id="logo-container">
         <ButtonSideBar />
         <Logo pos="header" />
       </LogoContainer>
-      <HeaderMenuContainer>
+      <HeaderMenuContainer id="header-menu-container">
         <UserAvatar />
         <HeaderMenu />
       </HeaderMenuContainer>

@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import styled, { css } from "styled-components";
-import { useUrl } from "../hooks/useUrl";
 import Container from "./Container";
+import { DEVICE_MIN_W } from "../utils/constants";
 
 const FilterButton = styled.button`
   background-color: var(--color-grey-0);
@@ -24,6 +24,13 @@ const FilterButton = styled.button`
   &:hover:not(:disabled) {
     background-color: var(--color-brand-600);
     color: var(--color-brand-50);
+  }
+  @media ${DEVICE_MIN_W.mobileS} {
+    width: 100%;
+  }
+  @media ${DEVICE_MIN_W.mobileL} {
+    min-width: 8rem;
+    width: max-content;
   }
 `;
 

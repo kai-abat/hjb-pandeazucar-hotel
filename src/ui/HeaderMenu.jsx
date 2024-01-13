@@ -12,6 +12,7 @@ const StyledHeaderMenu = styled.ul`
   align-items: center;
   justify-content: center;
   gap: 0.8rem;
+  width: max-content;
 `;
 
 function HeaderMenu() {

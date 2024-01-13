@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 
 const Heading = styled.h1`
+  min-width: max-content;
   ${(props) =>
     props.as === "h1" &&
     css`

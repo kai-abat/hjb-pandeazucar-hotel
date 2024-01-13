@@ -7,6 +7,7 @@ const Container = styled.div`
   border-radius: var(--border-radius-sm);
   padding: 0.4rem;
   display: flex;
+  align-items: center;
   gap: 0.4rem;
   ${(props) =>
     props.direction === "column"
@@ -15,6 +16,8 @@ const Container = styled.div`
         `
       : css`
           flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
         `}
 `;
 

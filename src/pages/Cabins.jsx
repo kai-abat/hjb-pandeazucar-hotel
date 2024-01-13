@@ -6,22 +6,25 @@ import CabinTableOperations from "../features/cabins/CabinTableOperations";
 import CabinCard from "../features/cabins/CabinCard";
 import { useSearchParams } from "react-router-dom";
 import { DISPLAY_MODE } from "../utils/constants";
+import useWindowDimensions from "../hooks/useWindowDimensions";
 // import { getCabins } from "../services/apiCabins";
 
 function Cabins() {
+  const { width: vpWidth } = useWindowDimensions();
   const [searchParams, setSearchParams] = useSearchParams();
   const currentMode =
     searchParams.get(DISPLAY_MODE.modeField) ||
     DISPLAY_MODE.options.at(0).value;
 
-  console.log("Cabins", currentMode);
+  const operationType = vpWidth < 1300 ? "vertical" : "horizontal";
+
   // TEST Side Effect fetching cabins from supabase api
   // useEffect(function () {
   //   getCabins().then((data) => console.log(data));
   // }, []);
   return (
     <>
-      <Row id="operations" type="horizontal">
+      <Row id="operations" type={operationType}>
         <Heading as="h1">All cabins</Heading>
         <CabinTableOperations />
         {/* <img

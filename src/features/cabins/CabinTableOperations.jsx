@@ -7,10 +7,6 @@ import { DISPLAY_MODE } from "../../utils/constants";
 function CabinTableOperations() {
   return (
     <TableOperations>
-      <DisplayMode
-        modeField={DISPLAY_MODE.modeField}
-        options={DISPLAY_MODE.options}
-      />
       <Filter
         filterField="discount"
         options={[
@@ -28,6 +24,10 @@ function CabinTableOperations() {
           { value: "maxCapacity-asc", label: "Sort by Capacity (low first)" },
           { value: "maxCapacity-desc", label: "Sort by Capacity (high first)" },
         ]}
+      />
+      <DisplayMode
+        modeField={DISPLAY_MODE.modeField}
+        options={DISPLAY_MODE.options}
       />
     </TableOperations>
   );

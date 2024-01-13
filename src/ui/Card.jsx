@@ -34,7 +34,7 @@ const Img = styled.img`
   aspect-ratio: 3 / 2;
   object-fit: cover;
   object-position: center;
-  width: 100%;
+  width: 10%;
   height: auto;
   @media ${DEVICE_MIN_W.tablet} {
     width: 100%;
