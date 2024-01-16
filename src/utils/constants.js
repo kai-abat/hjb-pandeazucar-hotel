@@ -34,7 +34,7 @@ export const DEVICE_MIN_W = {
   mobileM2: `(min-width: ${DEVICE_SCREEN.mobileM2.min}px)`,
   mobileL: `(min-width: ${DEVICE_SCREEN.mobileL.min}px)`,
   tablet: `(min-width:  ${DEVICE_SCREEN.tablet.min}px)`,
-  laptop: `(min-width:  ${DEVICE_SCREEN.laptop.max}px)`,
+  laptop: `(min-width:  ${DEVICE_SCREEN.laptop.min}px)`,
 };
 
 export const ANON_USER = {

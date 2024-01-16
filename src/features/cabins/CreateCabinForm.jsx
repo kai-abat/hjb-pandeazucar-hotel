@@ -55,6 +55,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
 
   return (
     <Form
+      id="form"
       onSubmit={handleSubmit(onSubmit, onError)}
       type={onCloseModal ? "modal" : "regular"}
     >

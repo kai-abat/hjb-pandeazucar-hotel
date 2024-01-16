@@ -18,6 +18,9 @@ import ProtectedRoute from "./ui/ProtectedRoute";
 import { DarkModeProvider } from "./context/DarkModeContext";
 import { AppProvider } from "./context/AppContext";
 import ProtectedUsersRoute from "./ui/ProtectedUsersRoute";
+import { Tooltip as ReactTooltip } from "react-tooltip";
+import styled from "styled-components";
+
 /* API USED
 React Router - Routing and Remote state management
 Styled Components - Styling
@@ -33,6 +36,11 @@ const queryClient = new QueryClient({
     },
   },
 });
+
+const StyledToolTip = styled(ReactTooltip)`
+  text-transform: capitalize;
+`;
+
 function App() {
   return (
     <AppProvider>
@@ -87,6 +95,10 @@ function App() {
               },
             }}
           />
+          <StyledToolTip id="tooltip-top" place="top" />
+          <StyledToolTip id="tooltip-right" place="right" />
+          <StyledToolTip id="tooltip-left" place="left" />
+          <StyledToolTip id="tooltip-bottom" place="bottom" />
         </QueryClientProvider>
       </DarkModeProvider>
     </AppProvider>

@@ -3,16 +3,11 @@ import Heading from "../ui/Heading";
 import Row from "../ui/Row";
 import AddCabin from "../features/cabins/AddCabin";
 import CabinTableOperations from "../features/cabins/CabinTableOperations";
-import CabinCard from "../features/cabins/CabinCard";
-import { useSearchParams } from "react-router-dom";
-import {
-  DEVICE_SCREEN,
-  DISPLAY_MODE,
-  DISPLAY_MODE_M,
-} from "../utils/constants";
+import CabinCards from "../features/cabins/CabinCards";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import useDisplayMode from "../hooks/useDisplayMode";
-// import { getCabins } from "../services/apiCabins";
+import Modal from "../ui/Modal";
+import CabinPhotoViewer from "../features/cabins/CabinPhotoViewer";
 
 function Cabins() {
   const { width: vpWidth } = useWindowDimensions();
@@ -26,10 +21,18 @@ function Cabins() {
   // }, []);
   return (
     <>
-      <Row id="operations" type={operationType}>
-        <Heading as="h1">All cabins</Heading>
-        <CabinTableOperations />
-      </Row>
+      <Modal>
+        <Row id="operations" type={operationType}>
+          <Modal.Open opensWindowName="cabin-photo-viewer">
+            <Heading as="h1">All cabins</Heading>
+          </Modal.Open>
+
+          <CabinTableOperations />
+        </Row>
+        <Modal.Window name="cabin-photo-viewer">
+          <CabinPhotoViewer />
+        </Modal.Window>
+      </Modal>
 
       <Row id="cabin-nav-buttons">
         <AddCabin />
@@ -37,7 +40,7 @@ function Cabins() {
 
       <Row>
         {currentMode === "table" && <CabinTable />}
-        {currentMode === "card" && <CabinCard />}
+        {currentMode === "card" && <CabinCards />}
       </Row>
     </>
   );

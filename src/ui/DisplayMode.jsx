@@ -14,14 +14,14 @@ const DisplayMode = ({ modeField, options, currentMode }) => {
       {options.map(
         (opt) =>
           opt.value !== currentMode && (
-            <>
-              <ButtonIcon
-                key={opt.value}
-                onClick={() => handleClick(opt.value)}
-              >
-                <opt.icon />
-              </ButtonIcon>
-            </>
+            <ButtonIcon
+              key={opt.value}
+              onClick={() => handleClick(opt.value)}
+              data-tooltip-id="tooltip-bottom"
+              data-tooltip-content={`View as ${opt.value}`}
+            >
+              <opt.icon />
+            </ButtonIcon>
           )
       )}
     </Container>

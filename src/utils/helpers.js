@@ -35,5 +35,15 @@ export const isObjectEmpty = (objectName) => {
 
 export const sortByDirection = (direction, field, list) => {
   const modifier = direction === "asc" ? 1 : -1;
-  return list.sort((a, b) => (a[field] - b[field]) * modifier);
+
+  // return list.sort((a, b) => {
+  //   const res = a[field] > b[field] ? 1 : b[field] > a[field] ? -1 : 0;
+  //   return res * modifier;
+  // });
+
+  return list.sort(
+    (a, b) =>
+      (a[field] > b[field] ? 1 : b[field] > a[field] ? -1 : 0) * modifier
+  );
+  // return list.sort((a, b) => (a[field] - b[field]) * modifier);
 };

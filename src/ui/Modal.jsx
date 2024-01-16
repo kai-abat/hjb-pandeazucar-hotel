@@ -1,19 +1,31 @@
 import { cloneElement, createContext, useContext, useState } from "react";
 import { createPortal } from "react-dom";
 import { HiXMark } from "react-icons/hi2";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { useOutsideClick } from "../hooks/useOutsideClick";
+import { DEVICE_MIN_W } from "../utils/constants";
 
 const StyledModal = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
+  display: flex;
+  justify-content: center;
   transform: translate(-50%, -50%);
   background-color: var(--color-grey-0);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-lg);
   padding: 3.2rem 4rem;
   transition: all 0.5s;
+  padding: 2rem 1.5rem;
+  overflow: scroll;
+
+  width: 90%;
+  height: 90dvh;
+
+  @media ${DEVICE_MIN_W.tablet} {
+    padding: 3.2rem 4rem;
+  }
 `;
 
 const Overlay = styled.div`
@@ -36,8 +48,9 @@ const Button = styled.button`
   transform: translateX(0.8rem);
   transition: all 0.2s;
   position: absolute;
-  top: 1.2rem;
-  right: 1.9rem;
+  top: 2%;
+  right: 4%;
+  z-index: 1;
 
   &:hover {
     background-color: var(--color-grey-100);
@@ -76,7 +89,7 @@ function Open({ children, opensWindowName }) {
 }
 
 function Window({ children, name }) {
-  const { openName, close } = useContext(ModalContext);
+  const { openName, close, maxHeight } = useContext(ModalContext);
 
   // Close the modal when click outside the modal window
   const ref = useOutsideClick(close);
@@ -88,7 +101,7 @@ function Window({ children, name }) {
   // of the modal
   return createPortal(
     <Overlay>
-      <StyledModal ref={ref}>
+      <StyledModal id="modal" ref={ref} $maxHeight={maxHeight}>
         <Button onClick={close}>
           <HiXMark />
         </Button>

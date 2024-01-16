@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { DEVICE_MIN_W } from "../utils/constants";
 import Button from "./Button";
-import { Tooltip } from "react-tooltip";
 
 const CommonDiv = styled.div`
   display: flex;
@@ -91,7 +90,7 @@ const StyledButton = styled(Button)`
   font-size: 1.5em;
 
   & svg {
-    color: var(--color-grey-900);
+    color: var(--color-grey-0H);
   }
 `;
 
@@ -103,9 +102,10 @@ const Card = ({ children }) => {
   );
 };
 
-const Image = ({ imageSrc, name }) => {
-  return <Img src={imageSrc} alt={name} />;
+const Image = ({ imageSrc, name, ...moreProps }) => {
+  return <Img src={imageSrc} alt={name} {...moreProps} />;
 };
+
 const Title = ({ children }) => {
   return (
     <StyledTitle>
@@ -122,13 +122,14 @@ const NavButtons = ({ children }) => {
   return <ButtonContainer>{children}</ButtonContainer>;
 };
 
-const CardButton = ({ label, icon, variation = "primary" }) => {
+const CardButton = ({ label, icon, variation = "primary", ...moreProps }) => {
   return (
     <>
       <StyledButton
         $variation={variation}
-        data-tooltip-id="tooltip-right"
+        data-tooltip-id="tooltip-left"
         data-tooltip-content={label}
+        {...moreProps}
       >
         {icon}
       </StyledButton>
