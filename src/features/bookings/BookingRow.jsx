@@ -17,13 +17,12 @@ import {
 } from "react-icons/hi2";
 import { useNavigate } from "react-router-dom";
 import { useCheckout } from "../check-in-out/useCheckout";
-import Spinner from "../../ui/Spinner";
 import { useDeleteBooking } from "./useDeleteBooking";
 import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 
 const Cabin = styled.div`
-  font-size: 1.6rem;
+  font-size: 1.2em;
   font-weight: 600;
   color: var(--color-grey-600);
   font-family: "Sono";
@@ -40,7 +39,7 @@ const Stacked = styled.div`
 
   & span:last-child {
     color: var(--color-grey-500);
-    font-size: 1.2rem;
+    font-size: 1em;
   }
 `;
 

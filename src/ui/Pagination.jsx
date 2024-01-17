@@ -31,7 +31,7 @@ const PaginationButton = styled.button`
   border: none;
   border-radius: var(--border-radius-sm);
   font-weight: 500;
-  font-size: 1.4rem;
+  font-size: 1em;
 
   display: flex;
   align-items: center;

@@ -23,8 +23,8 @@ const StyledToggle = styled.button`
   }
 
   & svg {
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 2rem;
+    height: 2rem;
     color: var(--color-grey-700);
   }
 `;
@@ -46,12 +46,12 @@ const StyledButton = styled.button`
   background: none;
   border: none;
   padding: 1.2rem 2.4rem;
-  font-size: 1.4rem;
+  font-size: 1.2em;
   transition: all 0.2s;
 
   display: flex;
   align-items: center;
-  gap: 1.6rem;
+  gap: 1.4rem;
 
   &:hover {
     background-color: var(--color-grey-50);

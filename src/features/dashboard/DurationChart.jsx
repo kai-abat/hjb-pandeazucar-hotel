@@ -18,7 +18,7 @@ const ChartBox = styled.div`
   border: 1px solid var(--color-grey-100);
   border-radius: var(--border-radius-md);
 
-  padding: 2.4rem 3.2rem;
+  padding: 2rem 2rem;
   grid-column: 3 / span 2;
   @media ${DEVICE_MAX_W.tablet} {
     grid-column: 1 / span 2;
@@ -183,7 +183,7 @@ function DurationChart({ confirmedStays }) {
   console.log(pieChartProp.legend.align);
   return (
     <ChartBox>
-      <Heading as="h2">Stay duration summary </Heading>
+      <Heading as="h3">Stay duration summary </Heading>
       <ResponsiveContainer width="100%" height={pieChartProp.rcontainer.height}>
         <PieChart>
           <Pie

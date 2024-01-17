@@ -22,14 +22,14 @@ const Img = styled.img`
 `;
 
 const Cabin = styled.div`
-  font-size: 1.6rem;
+  font-size: 1.2em;
   font-weight: 600;
   color: var(--color-grey-600);
   font-family: "Sono";
 `;
 
 const Capacity = styled.div`
-  font-size: 1.4rem;
+  font-size: 1.1em;
   font-weight: 400;
   color: var(--color-grey-600);
   /* font-family: "Sono"; */

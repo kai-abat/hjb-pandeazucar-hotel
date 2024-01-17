@@ -1,7 +1,7 @@
 import { cloneElement, createContext, useContext, useState } from "react";
 import { createPortal } from "react-dom";
 import { HiXMark } from "react-icons/hi2";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { useOutsideClick } from "../hooks/useOutsideClick";
 import { DEVICE_MIN_W } from "../utils/constants";
 

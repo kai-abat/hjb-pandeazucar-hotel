@@ -8,11 +8,11 @@ import CheckoutButton from "./CheckoutButton";
 const StyledTodayItem = styled.li`
   display: grid;
 
-  grid-template-columns: 9rem 2rem 1fr 7rem 9rem;
-  gap: 1.2rem;
+  grid-template-columns: 6rem 2rem 1fr 5rem 9rem;
+  gap: 0.5rem;
   align-items: center;
 
-  font-size: 1.4rem;
+  font-size: 1em;
   padding: 0.8rem 0;
   border-bottom: 1px solid var(--color-grey-100);
 

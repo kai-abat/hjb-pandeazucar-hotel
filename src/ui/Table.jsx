@@ -19,7 +19,7 @@ const rowEntrance = keyframes`
 const StyledTable = styled.div`
   border: 1px solid var(--color-grey-200);
 
-  font-size: 1.4rem;
+  font-size: 1.2em;
   background-color: var(--color-grey-0);
   border-radius: 7px;
   overflow: auto;
@@ -50,9 +50,7 @@ const StyledHeader = styled(CommonRow)`
 
 const StyledRow = styled(CommonRow)`
   padding: 1.2rem 2.4rem;
-
   animation-delay: calc(${(props) => props.$index} * ${staggerDelay});
-
   &:not(:last-child) {
     border-bottom: 1px solid var(--color-grey-100);
   }
@@ -75,7 +73,7 @@ const Footer = styled.footer`
 `;
 
 const Empty = styled.p`
-  font-size: 1.6rem;
+  font-size: 1.2em;
   font-weight: 500;
   text-align: center;
   margin: 2.4rem;

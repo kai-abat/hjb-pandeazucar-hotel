@@ -6,6 +6,7 @@ import { useOutsideClick } from "../hooks/useOutsideClick";
 import ButtonSideBar from "./ButtonSideBar";
 import LogoContainer from "./LogoContainer";
 import { DEVICE_MIN_W } from "../utils/constants";
+// import Uploader from "../data/Uploader";
 
 const StyleSidebar = styled.aside`
   position: fixed;

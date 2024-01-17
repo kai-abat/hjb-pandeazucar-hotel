@@ -13,7 +13,7 @@ const StyledToday = styled.div`
   border: 1px solid var(--color-grey-100);
   border-radius: var(--border-radius-md);
 
-  padding: 3.2rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
@@ -42,7 +42,7 @@ const TodayList = styled.ul`
 
 const NoActivity = styled.p`
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 1.5em;
   font-weight: 500;
   margin-top: 0.8rem;
 `;
@@ -53,7 +53,7 @@ function TodayActivity() {
   return (
     <StyledToday>
       <Row type="horizontal">
-        <Heading as="h2">Today</Heading>
+        <Heading as="h3">Today</Heading>
       </Row>
 
       {!isLoading ? (

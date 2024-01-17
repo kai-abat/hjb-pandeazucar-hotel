@@ -24,7 +24,7 @@ function Cabins() {
       <Modal>
         <Row id="operations" type={operationType}>
           <Modal.Open opensWindowName="cabin-photo-viewer">
-            <Heading as="h1">All cabins</Heading>
+            <Heading as="h2">All Cabins</Heading>
           </Modal.Open>
 
           <CabinTableOperations />
